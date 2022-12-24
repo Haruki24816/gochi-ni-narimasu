@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <NavMenu/>
+  <Board/>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue"
+import NavMenu from "./components/NavMenu.vue"
+import Board from "./components/Board.vue"
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    NavMenu,
+    Board
   }
 }
 </script>
