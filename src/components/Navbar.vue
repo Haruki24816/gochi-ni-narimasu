@@ -10,25 +10,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">プレイ補助 <span class="badge bg-primary" v-if="true">オン</span><span class="badge bg-secondary" v-else>オフ</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              サウンド変更
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item active" href="#">借金①</a></li>
-              <li><a class="dropdown-item" href="#">借金②</a></li>
-              <li><a class="dropdown-item" href="#">借金③</a></li>
-              <li><a class="dropdown-item" href="#">大破産</a></li>
-              <li><a class="dropdown-item" href="#">レジスター</a></li>
-              <li><a class="dropdown-item" href="#">爆発</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">リセット</a>
-          </li>
+          <ToggleAssist/>
+          <ChangeSound/>
+          <Reset/>
           <li class="nav-item">
             <a class="nav-link" href="#">記録シートDL</a>
           </li>
@@ -43,7 +27,16 @@
 </template>
 
 <script>
+import ToggleAssist from "./ToggleAssist.vue"
+import ChangeSound from "./ChangeSound.vue"
+import Reset from "./Reset.vue"
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  components: {
+    ToggleAssist,
+    ChangeSound,
+    Reset
+  }
 }
 </script>
