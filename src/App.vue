@@ -4,7 +4,7 @@
       <ToggleAssist />
       <ChangeSound />
       <Reset />
-      <li class="nav-item"><a class="nav-link" href="/sheet.pdf">記録シートDL</a></li>
+      <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
     <form class="d-flex">
       <input class="form-control me-2" type="text" placeholder="プレイヤー名" aria-label="プレイヤー名">
