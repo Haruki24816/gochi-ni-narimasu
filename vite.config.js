@@ -1,5 +1,5 @@
 module.exports = {
-    base: "./",
+    base: "/gochi-ni-narimasu/",
     assetsDir: "./",
     outDir: "docs",
 }
