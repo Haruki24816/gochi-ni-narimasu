@@ -8,11 +8,6 @@
 
 <script>
 export default {
-  name: "Board",
-  data() {
-    return {
-      count: 0
-    }
-  }
+  name: "Board"
 }
 </script>

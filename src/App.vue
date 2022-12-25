@@ -1,16 +1,16 @@
 <template>
-  <NavMenu/>
+  <Navbar/>
   <Board/>
 </template>
 
 <script>
-import NavMenu from "./components/NavMenu.vue"
+import Navbar from "./components/Navbar.vue"
 import Board from "./components/Board.vue"
 
 export default {
   name: "App",
   components: {
-    NavMenu,
+    Navbar,
     Board
   }
 }

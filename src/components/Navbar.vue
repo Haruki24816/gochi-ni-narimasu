@@ -21,11 +21,6 @@
 
 <script>
 export default {
-  name: "NavMenu",
-  data() {
-    return {
-      count: 0
-    }
-  }
+  name: "Navbar"
 }
 </script>
