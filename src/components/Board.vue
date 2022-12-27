@@ -1,13 +1,20 @@
 <template>
   <div class="container">
-    <div class="alert alert-primary mt-3" role="alert">
-      ボード
-    </div>
+    <PlayerPanel v-for="playerName in players" :playerName="playerName" :players="players" />
   </div>
 </template>
 
 <script>
-export default {
-  name: "Board"
-}
+  import PlayerPanel from "./PlayerPanel.vue"
+
+  export default {
+    name: "Board",
+    props: {
+      players: Array
+    },
+    components: {
+      PlayerPanel
+    }
+  }
+
 </script>

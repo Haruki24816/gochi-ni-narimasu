@@ -11,7 +11,7 @@
       <button class="btn btn-outline-success flex-shrink-0">追加</button>
     </div>
   </Navbar>
-  <Board />
+  <Board :players="['佐藤', '鈴木', '高橋', '田中']" />
 </template>
 
 <script>
