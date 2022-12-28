@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <PlayerPanel v-for="(dataContent, playerName) in debtData" :playerName="playerName" :dataContent="dataContent" />
+    <PlayerPanel v-for="(dataContent, playerName) in debtData" :playerName="playerName" :dataContent="dataContent" @increase-debt="$emit('increase-debt', $event)" @decrease-debt="$emit('decrease-debt', $event)" />
   </div>
 </template>
 

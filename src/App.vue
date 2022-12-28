@@ -8,7 +8,7 @@
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
   </Navbar>
-  <Board :debtData="debtData" />
+  <Board :debtData="debtData" @increase-debt="increaseDebt($event[0], $event[1])" @decrease-debt="decreaseDebt($event[0], $event[1])" />
 </template>
 
 <script>
@@ -43,6 +43,14 @@
           this.debtData[playerName][otherPlayerName] = 0
           this.debtData[otherPlayerName][playerName] = 0
         }
+      },
+      increaseDebt(firstPerson, secondPerson) {
+        this.debtData[firstPerson][secondPerson] += 500
+        this.debtData[secondPerson][firstPerson] -= 500
+      },
+      decreaseDebt(firstPerson, secondPerson) {
+        this.debtData[firstPerson][secondPerson] -= 500
+        this.debtData[secondPerson][firstPerson] += 500
       }
     }
   }
