@@ -6,7 +6,7 @@
       <Reset />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
-    <AddPlayer />
+    <AddPlayer :playerList="playerList" @add-player-name="addPlayerName" />
   </Navbar>
   <Board :playerList="playerList" />
 </template>
@@ -31,8 +31,13 @@
     },
     data() {
       return {
-        playerList: ["佐藤さん", "鈴木さん", "高橋さん", "田中さん"],
+        playerList: [],
         debtData: {}
+      }
+    },
+    methods: {
+      addPlayerName(playerName) {
+        this.playerList.push(playerName)
       }
     }
   }
