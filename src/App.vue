@@ -11,24 +11,31 @@
       <button class="btn btn-outline-success flex-shrink-0">追加</button>
     </div>
   </Navbar>
-  <Board :players="['佐藤', '鈴木', '高橋', '田中']" />
+  <Board :playerList="playerList" />
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue"
-import Board from "./components/Board.vue"
-import ToggleAssist from "./components/ToggleAssist.vue"
-import ChangeSound from "./components/ChangeSound.vue"
-import Reset from "./components/Reset.vue"
+  import Navbar from "./components/Navbar.vue"
+  import Board from "./components/Board.vue"
+  import ToggleAssist from "./components/ToggleAssist.vue"
+  import ChangeSound from "./components/ChangeSound.vue"
+  import Reset from "./components/Reset.vue"
 
-export default {
-  name: "App",
-  components: {
-    Navbar,
-    Board,
-    ToggleAssist,
-    ChangeSound,
-    Reset
+  export default {
+    name: "App",
+    components: {
+      Navbar,
+      Board,
+      ToggleAssist,
+      ChangeSound,
+      Reset
+    },
+    data() {
+      return {
+        playerList: ["佐藤さん", "鈴木さん", "高橋さん", "田中さん"],
+        debtData: {}
+      }
+    }
   }
-}
+
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <PlayerPanel v-for="playerName in players" :playerName="playerName" :players="players" />
+    <PlayerPanel v-for="playerName in playerList" :playerName="playerName" :playerList="playerList" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   export default {
     name: "Board",
     props: {
-      players: Array
+      playerList: Array
     },
     components: {
       PlayerPanel
