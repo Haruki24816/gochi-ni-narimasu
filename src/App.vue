@@ -6,9 +6,9 @@
       <Reset />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
-    <AddPlayer :playerList="playerList" @add-player-name="addPlayerName" />
+    <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
   </Navbar>
-  <Board :playerList="playerList" />
+  <Board :playerList="Object.keys(debtData)" />
 </template>
 
 <script>
@@ -31,13 +31,19 @@
     },
     data() {
       return {
-        playerList: [],
         debtData: {}
       }
     },
     methods: {
       addPlayerName(playerName) {
-        this.playerList.push(playerName)
+        let others = Object.keys(this.debtData)
+        this.debtData[playerName] = {}
+        for (let num in others) {
+          let otherPlayerName = others[num]
+          this.debtData[playerName][otherPlayerName] = 0
+          this.debtData[otherPlayerName][playerName] = 0
+        }
+        console.log(this.debtData)
       }
     }
   }
