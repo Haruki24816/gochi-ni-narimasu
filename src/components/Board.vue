@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <PlayerPanel v-for="playerName in playerList" :playerName="playerName" :playerList="playerList" />
+    <PlayerPanel v-for="(dataContent, playerName) in debtData" :playerName="playerName" :dataContent="dataContent" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   export default {
     name: "Board",
     props: {
-      playerList: Array
+      debtData: Object
     },
     components: {
       PlayerPanel

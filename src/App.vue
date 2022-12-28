@@ -8,7 +8,7 @@
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
   </Navbar>
-  <Board :playerList="Object.keys(debtData)" />
+  <Board :debtData="debtData" />
 </template>
 
 <script>
@@ -43,7 +43,6 @@
           this.debtData[playerName][otherPlayerName] = 0
           this.debtData[otherPlayerName][playerName] = 0
         }
-        console.log(this.debtData)
       }
     }
   }
