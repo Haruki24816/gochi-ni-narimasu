@@ -6,10 +6,7 @@
       <Reset />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
-    <div class="d-flex">
-      <input class="form-control me-2" type="text" placeholder="プレイヤー名" aria-label="プレイヤー名">
-      <button class="btn btn-outline-success flex-shrink-0">追加</button>
-    </div>
+    <AddPlayer />
   </Navbar>
   <Board :playerList="playerList" />
 </template>
@@ -20,6 +17,7 @@
   import ToggleAssist from "./components/ToggleAssist.vue"
   import ChangeSound from "./components/ChangeSound.vue"
   import Reset from "./components/Reset.vue"
+  import AddPlayer from "./components/AddPlayer.vue"
 
   export default {
     name: "App",
@@ -28,7 +26,8 @@
       Board,
       ToggleAssist,
       ChangeSound,
-      Reset
+      Reset,
+      AddPlayer
     },
     data() {
       return {
