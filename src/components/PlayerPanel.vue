@@ -1,12 +1,13 @@
 <template>
-  <h4>{{ playerName }}</h4>
-  <div class="row">
-    <div class="col" v-for="(amount, opponentPlayer) in dataContent">
-      <div>
+  <hr>
+  <h4 class="text-truncate">{{ playerName }}</h4>
+  <div class="d-flex justify-content-center flex-wrap">
+    <div class="m-2 lh-sm" style="width:120px" v-for="(amount, opponentPlayer) in dataContent">
+      <div class="text-truncate" style="font-size:small">
         {{ opponentPlayer }}<br>
-        {{ (amount).toLocaleString("ja-JP") }} 円
+        <strong style="font-size:large">{{ (amount).toLocaleString("ja-JP") }}</strong> 円
       </div>
-      <div class="btn-group btn-group-lg" role="group" aria-label="input">
+      <div class="btn-group btn-group-lg w-100 mt-1" role="group" aria-label="input">
         <button type="button" class="btn btn-primary"
           @click="$emit('increase-debt', [playerName, opponentPlayer])">＋</button>
         <button type="button" class="btn btn-primary"
