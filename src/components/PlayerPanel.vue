@@ -1,6 +1,6 @@
 <template>
   <hr>
-  <h4 class="text-truncate">{{ playerName }}</h4>
+  <h4>{{ playerName }}</h4>
   <div class="d-flex justify-content-center flex-wrap">
     <div class="m-2 lh-sm" style="width:120px" v-for="(amount, opponentPlayer) in dataContent">
       <div class="text-truncate" style="font-size:small">
