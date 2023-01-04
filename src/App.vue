@@ -33,7 +33,17 @@ export default {
   data() {
     return {
       debtData: {},
-      assist: true
+      assist: true,
+      soundList: [
+        "レジスター",
+        "借金①",
+        "借金②",
+        "借金③",
+        "大破産",
+        "爆発"
+      ],
+      sounds: {},
+      currentSoundName: "レジスター"
     }
   },
   methods: {
@@ -49,10 +59,24 @@ export default {
     increaseDebt(firstPerson, secondPerson) {
       this.debtData[firstPerson][secondPerson] += 500
       this.debtData[secondPerson][firstPerson] -= 500
+      this.playSound()
     },
     decreaseDebt(firstPerson, secondPerson) {
       this.debtData[firstPerson][secondPerson] -= 500
       this.debtData[secondPerson][firstPerson] += 500
+      this.playSound()
+    },
+    playSound() {
+      let audio = this.sounds[this.currentSoundName]
+      audio.currentTime = 0
+      audio.play()
+    }
+  },
+  mounted() {
+    for (let num in this.soundList) {
+      let name = this.soundList[num]
+      let url = new URL("./assets/sounds/" + name + ".mp3", import.meta.url).href
+      this.sounds[name] = new Audio(url)
     }
   }
 }
