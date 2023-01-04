@@ -74,6 +74,7 @@ export default {
       audioFiles[path]().then((file) => {
         let url = file.default
         let name = url.split("/").slice(-1)[0].slice(0, -4)
+        name = name.split("-")[0]
         this.sounds[name] = new Audio(url)
       })
     }
