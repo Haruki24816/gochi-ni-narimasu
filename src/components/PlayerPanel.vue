@@ -23,7 +23,11 @@ export default {
   props: {
     playerName: String,
     dataContent: Object
-  }
+  },
+  emits: [
+    "increase-debt",
+    "decrease-debt"
+  ]
 }
 
 </script>

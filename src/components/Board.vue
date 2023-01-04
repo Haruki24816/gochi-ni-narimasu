@@ -2,8 +2,8 @@
   <div class="container text-center">
     <PlayerPanel v-for="(dataContent, playerName) in debtData" :playerName="playerName" :dataContent="dataContent"
       @increase-debt="$emit('increase-debt', $event)" @decrease-debt="$emit('decrease-debt', $event)" />
-    <hr v-if="num!=0">
-    <div class="alert alert-primary m-3" role="alert" v-if="num<2">
+    <hr v-if="num != 0">
+    <div class="alert alert-primary m-3" role="alert" v-if="num < 2">
       プレイヤーを2人以上追加してください
     </div>
   </div>
@@ -28,7 +28,11 @@ export default {
         return Object.keys(this.debtData).length
       }
     }
-  }
+  },
+  emits: [
+    "increase-debt",
+    "decrease-debt"
+  ]
 }
 
 </script>
