@@ -8,9 +8,9 @@
         <strong style="font-size:large">{{ (amount).toLocaleString("ja-JP") }}</strong> 円
       </div>
       <div class="btn-group btn-group-lg w-100 mt-1" role="group" aria-label="input">
-        <button type="button" class="btn btn-primary"
+        <button type="button" :class="buttonClass(amount)"
           @click="$emit('increase-debt', [playerName, opponentPlayer])">＋</button>
-        <button type="button" class="btn btn-primary"
+        <button type="button" :class="buttonClass(amount)"
           @click="$emit('decrease-debt', [playerName, opponentPlayer])">－</button>
       </div>
     </div>
@@ -27,7 +27,18 @@ export default {
   emits: [
     "increase-debt",
     "decrease-debt"
-  ]
+  ],
+  methods: {
+    buttonClass(amount) {
+      if (amount > 0) {
+        return "btn btn-success"
+      } else if (amount < 0) {
+        return "btn btn-danger"
+      } else {
+        return "btn btn-primary"
+      }
+    }
+  }
 }
 
 </script>
