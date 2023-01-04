@@ -2,10 +2,9 @@
   <Navbar>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <ToggleAssist @toggle-assist="assist = $event" />
-      <ChangeSound :currentSoundName="currentSoundName" :soundList="soundList"
-        @change-sound="ChangeSound($event)" />
+      <ChangeSound :currentSoundName="currentSoundName" :soundList="soundList" @change-sound="ChangeSound($event)" />
       <Reset />
-      <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
+      <li class="nav-item"><a class="nav-link" href="/sheet.pdf">記録シートDL</a></li>
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
   </Navbar>
