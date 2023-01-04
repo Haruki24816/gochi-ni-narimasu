@@ -2,7 +2,8 @@
   <Navbar>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <ToggleAssist @toggle-assist="assist = $event" />
-      <ChangeSound />
+      <ChangeSound :currentSoundName="currentSoundName" :soundList="soundList"
+        @change-sound="ChangeSound($event)" />
       <Reset />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
@@ -70,6 +71,10 @@ export default {
       let audio = this.sounds[this.currentSoundName]
       audio.currentTime = 0
       audio.play()
+    },
+    ChangeSound(name) {
+      this.currentSoundName = name
+      this.playSound()
     }
   },
   mounted() {

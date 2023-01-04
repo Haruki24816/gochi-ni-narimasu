@@ -5,18 +5,31 @@
       サウンド変更
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <li><a class="dropdown-item active" href="#">借金①</a></li>
-      <li><a class="dropdown-item" href="#">借金②</a></li>
-      <li><a class="dropdown-item" href="#">借金③</a></li>
-      <li><a class="dropdown-item" href="#">大破産</a></li>
-      <li><a class="dropdown-item" href="#">レジスター</a></li>
-      <li><a class="dropdown-item" href="#">爆発</a></li>
+      <li v-for="soundName in soundList">
+        <a :class="listClass(soundName)" href="#" @click="$emit('change-sound', soundName)">{{ soundName }}</a>
+      </li>
     </ul>
   </li>
 </template>
 
 <script>
 export default {
-  name: "ChangeSound"
+  name: "ChangeSound",
+  props: {
+    currentSoundName: String,
+    soundList: Array
+  },
+  methods: {
+    listClass(name) {
+      if (name == this.currentSoundName) {
+        return "dropdown-item active"
+      } else {
+        return "dropdown-item"
+      }
+    }
+  },
+  emits: [
+    "change-sound"
+  ]
 }
 </script>
