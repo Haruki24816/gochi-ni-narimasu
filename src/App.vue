@@ -4,7 +4,7 @@
       <ToggleAssist @toggle-assist="assist = $event" />
       <ChangeSound />
       <Reset />
-      <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
+      <li class="nav-item"><a class="nav-link" href="/sheet.pdf">記録シートDL</a></li>
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
   </Navbar>
