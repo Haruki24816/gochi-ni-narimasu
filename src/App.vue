@@ -2,7 +2,7 @@
   <Navbar>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <ToggleAssist @toggle-assist="assist = $event" />
-      <ChangeSound :currentSoundName="currentSoundName" :soundList="soundList" @change-sound="ChangeSound($event)" />
+      <ChangeSound :currentSoundName="currentSoundName" :soundList="Object.keys(sounds)" @change-sound="ChangeSound($event)" />
       <Reset />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
@@ -19,6 +19,7 @@ import ToggleAssist from "./components/ToggleAssist.vue"
 import ChangeSound from "./components/ChangeSound.vue"
 import Reset from "./components/Reset.vue"
 import AddPlayer from "./components/AddPlayer.vue"
+const audioFiles = import.meta.glob("./assets/sounds/*.mp3")
 
 export default {
   name: "App",
@@ -34,14 +35,6 @@ export default {
     return {
       debtData: {},
       assist: true,
-      soundList: [
-        "レジスター",
-        "借金①",
-        "借金②",
-        "借金③",
-        "大破産",
-        "爆発"
-      ],
       sounds: {},
       currentSoundName: "レジスター"
     }
@@ -77,10 +70,12 @@ export default {
     }
   },
   mounted() {
-    for (let num in this.soundList) {
-      let name = this.soundList[num]
-      let url = new URL("./assets/sounds/" + name + ".mp3", import.meta.url).href
-      this.sounds[name] = new Audio(url)
+    for (let path in audioFiles) {
+      audioFiles[path]().then((file) => {
+        let url = file.default
+        let name = url.split("/").slice(-1)[0].slice(0, -4)
+        this.sounds[name] = new Audio(url)
+      })
     }
   }
 }
