@@ -22,7 +22,8 @@ export default {
   name: "PlayerPanel",
   props: {
     playerName: String,
-    dataContent: Object
+    dataContent: Object,
+    assist: Boolean
   },
   emits: [
     "increase-debt",
@@ -30,7 +31,9 @@ export default {
   ],
   methods: {
     buttonClass(amount) {
-      if (amount > 0) {
+      if (!this.assist) {
+        return "btn btn-primary"
+      } else if (amount > 0) {
         return "btn btn-success"
       } else if (amount < 0) {
         return "btn btn-danger"
