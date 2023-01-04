@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex">
     <input class="form-control me-2" type="text" placeholder="プレイヤー名" aria-label="プレイヤー名" v-model="playerName" @keydown.enter="emitPlayerName">
-    <button class="btn btn-outline-success flex-shrink-0" v-if="validate" @click="emitPlayerName">追加</button>
-    <button class="btn btn-outline-success flex-shrink-0 disabled" v-else>追加</button>
+    <button class="btn btn-primary flex-shrink-0" v-if="validate" @click="emitPlayerName">追加</button>
+    <button class="btn btn-primary flex-shrink-0 disabled" v-else>追加</button>
   </div>
 </template>
 
