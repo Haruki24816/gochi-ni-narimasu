@@ -36,7 +36,10 @@ export default {
     return {
       debtData: {},
       assist: true,
-      sounds: {},
+      sounds: {
+        "無音": null,
+        "ランダム": null
+      },
       currentSoundName: "レジスター"
     }
   },
@@ -61,9 +64,19 @@ export default {
       this.playSound()
     },
     playSound() {
-      let audio = this.sounds[this.currentSoundName]
-      audio.currentTime = 0
-      audio.play()
+      if (this.currentSoundName == "無音") {
+        return
+      } else if (this.currentSoundName == "ランダム") {
+        let soundList = Object.keys(this.sounds).slice(2)
+        let name = soundList[Math.floor(Math.random() * soundList.length)]
+        let audio = this.sounds[name]
+        audio.currentTime = 0
+        audio.play()
+      } else {
+        let audio = this.sounds[this.currentSoundName]
+        audio.currentTime = 0
+        audio.play()
+      }
     },
     changeSound(name) {
       this.currentSoundName = name
@@ -80,7 +93,7 @@ export default {
       this.debtData = {}
     }
   },
-  mounted() {
+  created() {
     for (let path in audioFiles) {
       audioFiles[path]().then((file) => {
         let url = file.default
