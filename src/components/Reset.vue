@@ -1,25 +1,14 @@
 <template>
-  <li class="nav-item">
-    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">リセット</a>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      リセット
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="#" @click="$emit('reset-amount')">金額のみリセットする</a></li>
+      <li><a class="dropdown-item" href="#" @click="$emit('reset-all')">すべてリセットする</a></li>
+    </ul>
   </li>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">リセット</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button" @click="$emit('reset-amount')"
-              data-bs-dismiss="modal">金額のみリセットする</button>
-            <button class="btn btn-primary" type="button" @click="$emit('reset-all')"
-              data-bs-dismiss="modal">すべてリセットする</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
