@@ -4,7 +4,7 @@
       <ToggleAssist @toggle-assist="assist = $event" />
       <ChangeSound :currentSoundName="currentSoundName" :soundList="Object.keys(sounds)"
         @change-sound="changeSound($event)" />
-      <Reset @reset-all="resetAll" @reset-amount="resetAmount" />
+      <Reset @reset-all="resetAll" @reset-amount="resetAmount" :debtData="debtData" />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
