@@ -2,8 +2,9 @@
   <Navbar>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <ToggleAssist @toggle-assist="assist = $event" />
-      <ChangeSound :currentSoundName="currentSoundName" :soundList="Object.keys(sounds)" @change-sound="ChangeSound($event)" />
-      <Reset />
+      <ChangeSound :currentSoundName="currentSoundName" :soundList="Object.keys(sounds)"
+        @change-sound="changeSound($event)" />
+      <Reset @reset-all="resetAll" @reset-amount="resetAmount" />
       <li class="nav-item"><a class="nav-link" href="./sheet.pdf">記録シートDL</a></li>
     </ul>
     <AddPlayer :playerList="Object.keys(debtData)" @add-player-name="addPlayerName" />
@@ -64,9 +65,19 @@ export default {
       audio.currentTime = 0
       audio.play()
     },
-    ChangeSound(name) {
+    changeSound(name) {
       this.currentSoundName = name
       this.playSound()
+    },
+    resetAmount() {
+      let playerList = Object.keys(this.debtData)
+      this.resetAll()
+      for (let num in playerList) {
+        this.addPlayerName(playerList[num])
+      }
+    },
+    resetAll() {
+      this.debtData = {}
     }
   },
   mounted() {
